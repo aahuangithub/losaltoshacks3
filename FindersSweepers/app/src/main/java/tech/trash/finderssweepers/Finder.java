@@ -5,9 +5,19 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import static tech.trash.finderssweepers.Constants.url;
 
 public class Finder extends AppCompatActivity {
     @Override
@@ -34,6 +44,22 @@ public class Finder extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, category);
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
+        Button b = findViewById(R.id.api_test);
+        b.setOnClickListener((v)->{
+
+// Instantiate the RequestQueue.
+            RequestQueue queue = Volley.newRequestQueue(this);
+
+// Request a string response from the provided URL.
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                    response -> {
+                        // Display the first 500 characters of the response string.
+                        Log.d("server", response);
+                    }, error -> Log.d("server", "fail"));
+
+// Add the request to the RequestQueue.
+            queue.add(stringRequest);
+        });
     }
 
 }
