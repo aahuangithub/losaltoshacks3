@@ -37,7 +37,11 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".finder"
+            android:label="@string/title_activity_finder"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
