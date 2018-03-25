@@ -117,7 +117,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(now != null){
             now.remove();
         }
-        now = mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())));
+        MarkerOptions mo = new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude()));
+        now = mMap.addMarker(mo);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(
                 new LatLng(location.getLatitude(), location.getLongitude())
         ));
