@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:paddingBottom="@dimen/button_side_margin"
     android:paddingRight="@dimen/button_side_margin"
     android:paddingLeft="@dimen/button_side_margin"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
 
@@ -16,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/button_side_margin"
 
-        android:text="Trash Description:"
+        android:text="Describe your trash..."
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         android:textSize="@dimen/main_title_size" />
 
@@ -24,8 +25,52 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:id="@+id/activity_finder_framelayout"
+            />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="vertical"
+                android:id="@+id/finder_ll"
+                android:layout_margin="@dimen/button_side_margin"
+                android:gravity="center_horizontal"
+                >
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/finder_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fabSize="normal"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true" />
+
+                <TextView
+                    android:background="#88000000"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:visibility="gone"
+                    android:id="@+id/finder_score_tooltip"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Score" />
+            </LinearLayout>
+    </FrameLayout>
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/finder_submit"
         android:layout_marginTop="@dimen/button_side_margin"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
@@ -35,6 +80,7 @@
     <Button
         android:id="@+id/api_test"
         android:text="test"
+        android:visibility="gone"
         android:layout_height="100dp" android:layout_width="match_parent" />
 
 </LinearLayout>

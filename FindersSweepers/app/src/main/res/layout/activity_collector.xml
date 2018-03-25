@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/activity_collector"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -27,4 +27,36 @@
         android:text="I found trash!"
         android:visibility="visible"
         />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="vertical"
+        android:id="@+id/collector_ll"
+        android:layout_margin="@dimen/button_side_margin"
+        android:gravity="center_horizontal"
+        >
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/collector_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:layout_marginBottom="8dp"
+            android:clickable="true" />
+
+        <TextView
+            android:background="#88000000"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:visibility="gone"
+            android:id="@+id/score_tooltip"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score" />
+    </LinearLayout>
+
 </FrameLayout>
