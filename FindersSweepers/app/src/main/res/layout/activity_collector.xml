@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/found"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="203dp"
+        android:layout_height="44dp"
+        android:text="found"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="451dp" />
+
+    <FrameLayout
+        android:layout_width="308dp"
+        android:layout_height="372dp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="48dp">
+
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
