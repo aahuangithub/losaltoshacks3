@@ -9,9 +9,10 @@ Bugs:
 * Doing anything before the map loads results in an error
 * ...You tell me!
 
-Todo (don't ask for ETA):
+Todo/future plans (don't ask for ETA):
 
 * Photo collage
 * In-game currency
 * Server tech with user profiles
 * Camera usage
+* Fix bugs
