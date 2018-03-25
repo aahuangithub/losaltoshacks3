@@ -102,7 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     d.dismiss();
                     int toRemove = -1;
                     for(int i=0; i<dummyTrash.size(); i++){
-                        if(dummyTrash.get(i).getCategory().equals(spin.getSelectedItem().toString()) //&& item within range
+                        if(dummyTrash.get(i).getCategory().equals(spin.getSelectedItem().toString()) //&& nearby(current.getLatitude, current.getLongitude, trash.getX(), trash.getY())
                                 ){
                             toRemove = i;
 
@@ -229,10 +229,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ));
     }
 
-    private double distanceTo(double latitude, double longitude, double x, double y) {
-        return(Math.sqrt(
-          Math.pow(latitude-x,2)+Math.pow(longitude-y,2)
-        ));
+    private boolean nearby(double latitude, double longitude, double x, double y) {
+        return false;
     }
 
     //method to convert your text to image
