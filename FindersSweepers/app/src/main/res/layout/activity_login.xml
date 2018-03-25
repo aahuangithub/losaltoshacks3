@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Which team are you on?"
+        android:text="Which team are you on today?"
         android:textSize="@dimen/main_title_size"
         android:paddingRight="8dp"
         android:paddingLeft="8dp"
@@ -23,6 +23,7 @@
     <Button
         android:layout_marginTop="16dp"
         android:paddingBottom="8dp"
+        android:id="@+id/finders_button"
         android:paddingTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,6 +38,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:textColor="@color/white"
+        android:id="@+id/sweepers_button"
         android:text="Sweepers"/>
 
 </LinearLayout>
