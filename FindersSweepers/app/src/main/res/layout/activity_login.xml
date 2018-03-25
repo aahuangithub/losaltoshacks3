@@ -9,6 +9,7 @@
     tools:context="tech.trash.finderssweepers.Login">
 
     <TextView
+        android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Which team are you on today?"
