@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 
@@ -29,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private MarkerOptions mMarkerOptions;
     private Marker now;
     private Button trashButton;
+    private LocationManager locationManager;
     public MapsActivity() {
     }
 
@@ -66,13 +68,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         };
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{ACCESS_FINE_LOCATION}, R.id.map_frame);
-
+            return;
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener);
-    }
+        else{
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener);
+        }
+        }
 
 
     /**
@@ -88,6 +92,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == R.id.map_frame){
+            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED) {
+                try {
+                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener);
+                } catch (SecurityException e) {
+
+                }
+            } else{
+//                AlertDialog.Builder builder = new AlertDialog.Builder(this)
+//                        .setMessage("Please enable location services.");
+//                builder.create().show();
+                finish();
+            }
+        }
     }
 
     public void onMapChange(Location location){
