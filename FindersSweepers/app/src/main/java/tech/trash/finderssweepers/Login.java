@@ -14,12 +14,13 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         finders = findViewById(R.id.finders_button);
         finders.setOnClickListener((v)->{
-            Log.d("Login Button Clicked", "Finders pressed");
+            startActivity(new Intent(getApplicationContext(), Finder.class));
+//            Log.d("Login Button Clicked", "Finders pressed");
         });
         sweepers = findViewById(R.id.sweepers_button);
         sweepers.setOnClickListener((view -> {
             startActivity(new Intent(getApplicationContext(), MapsActivity.class));
-            Log.d("Login Button Clicked", "Sweepers pressed");
+//            Log.d("Login Button Clicked", "Sweepers pressed");
         }));
     }
 }

@@ -42,7 +42,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".finder"
+            android:name=".Finder"
             android:label="@string/title_activity_finder"
             android:theme="@style/AppTheme"></activity>
     </application>

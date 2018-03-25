@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:paddingRight="@dimen/button_side_margin"
+    android:paddingLeft="@dimen/button_side_margin"
+    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button2"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="194dp"
-        android:layout_height="75dp"
-        android:text="enter"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="420dp" />
+
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="329dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/button_side_margin"
+
         android:text="Trash Description:"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:textSize="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="101dp" />
+        android:textSize="@dimen/main_title_size" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/button2"
+        android:layout_marginTop="@dimen/button_side_margin"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="170dp" />
+        android:text="Add to map" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
