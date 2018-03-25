@@ -5,5 +5,5 @@ package tech.trash.finderssweepers;
  */
 
 public final class Constants {
-    public final static String url = "66.129.246.4";
+    public final static String url = "http://172.24.13.142";
 }
