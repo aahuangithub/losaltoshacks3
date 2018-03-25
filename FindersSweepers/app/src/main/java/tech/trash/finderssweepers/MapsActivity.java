@@ -27,6 +27,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ArrayAdapter;
@@ -50,6 +51,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static java.lang.Math.cos;
 import static tech.trash.finderssweepers.Constants.CATEGORIES;
 import static tech.trash.finderssweepers.Constants.dummyCategories;
 import static tech.trash.finderssweepers.Constants.dummyCoordinates;
@@ -102,7 +104,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     d.dismiss();
                     int toRemove = -1;
                     for(int i=0; i<dummyTrash.size(); i++){
-                        if(dummyTrash.get(i).getCategory().equals(spin.getSelectedItem().toString()) //&& nearby(current.getLatitude, current.getLongitude, trash.getX(), trash.getY())
+                        if(dummyTrash.get(i).getCategory().equals(spin.getSelectedItem().toString())
+                                && nearby(current.getLatitude(), current.getLongitude(), dummyTrash.get(i).getCoordinate().getX(), dummyTrash.get(i).getCoordinate().getY())
                                 ){
                             toRemove = i;
 
@@ -230,7 +233,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private boolean nearby(double latitude, double longitude, double x, double y) {
-        return false;
+        double rad = 6371.0;
+        double lat1 = Math.toRadians(latitude);
+        double lon1 = Math.toRadians(longitude);
+        double lat2 = Math.toRadians(x);
+        double lon2 = Math.toRadians(y);
+
+        double   dlon = lon2 - lon1;
+        double dlat = lat2 - lat1;
+
+        double  a = Math.pow(Math.sin(dlat / 2),2) + cos(lat1) * cos(lat2) * Math.pow(Math.sin(dlon / 2),2);
+        double  c = 2 * Math.atan(Math.sqrt(a)/ Math.sqrt(1 - a));
+        double distance = rad * c;
+        Log.d("distance", String.valueOf(distance));
+        return distance<0.005?true:false;
     }
 
     //method to convert your text to image
